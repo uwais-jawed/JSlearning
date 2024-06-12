@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+
+
+</body>
+<script>
+
+
+    const reqUrl = 'https://api.github.com/users/uwais-jawed'
+    const xhr = new XMLHttpRequest()
+    const cmd = 'GET'
+
+    
+    xhr.open(cmd , reqUrl)
+    
+    
+    xhr.onreadystatechange =function(){
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            
+        }    
+        
+    }
+
+    xhr.send()
+
+
+    function createCard(data){
+    const parent = document.querySelector('body')
+    const container = document.createElement('div')
+    const photoDiv = document.createElement('div')
+    const image = document.createElement('img')
+    const infoDiv = document.createElement('div')
+
+
+    Object.assign(photoDiv.style, { 
+        height: '80%', width: '30%', 
+        border:'2px solid black'
+    });
+    Object.assign(infoDiv.style, { 
+        height: '73%', width: '60%', 
+        padding:'10px 10px 10px', 
+        
+        border:'2px solid black'
+    });
+    
+    Object.assign(container.style, { 
+        height: '50vh', width: '90vh',  
+        backgroundColor : 'white',display:'flex',
+        justifyContent : 'space-between',
+        justifyContent : 'space-around',
+        alignItems :'center',
+        padding : '10px 10px 10px'
+
+    });
+
+    
+    
+
+
+
+    parent.appendChild(container)
+    photoDiv.appendChild(image)
+    container.appendChild(photoDiv)
+    container.appendChild(infoDiv)}
+
+    createCard(data)
+    
+
+
+
+
+
+
+</script>
+</html>
